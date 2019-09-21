@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+  },
+  {
+    path: 'debug',
+    loadChildren: () => import('./debug/debug.module').then(m => m.DebugPageModule)
   }
 ];
 
