@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {VocalService} from '../services/vocal/vocal.service';
 import {HttpService} from '../services/http/http.service';
 import {LoginService} from '../services/Login/login.service';
+import {InitializerService} from '../services/initializer/intializer.service';
 
 @Component({
     selector: 'app-debug',
@@ -10,7 +11,12 @@ import {LoginService} from '../services/Login/login.service';
 })
 export class DebugPage implements OnInit {
     tata: string = "tata";
-    constructor(private vocalService: VocalService, private httpService: HttpService, private loginService: LoginService)
+    constructor(
+        private vocalService: VocalService,
+        private httpService: HttpService,
+        private loginService: LoginService,
+        private initializerService: InitializerService
+    )
     {
     }
 
@@ -55,5 +61,9 @@ export class DebugPage implements OnInit {
 
     getLogin(){
         this.tata = this.loginService.getData();
+    }
+
+    init(){
+        this.initializerService.setInitialized();
     }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {LoginService} from '../services/Login/login.service';
+import {InitializerService} from '../services/initializer/intializer.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,13 @@ import {LoginService} from '../services/Login/login.service';
 })
 export class HomePage {
 
-  constructor(private loginService: LoginService) {}
+  constructor(
+      private loginService: LoginService,
+      private initializerService: InitializerService
+  ) {}
 
   setLogin() {
       this.loginService.setData('ratatoune');
+      this.initializerService.setInitialized();
   }
 }

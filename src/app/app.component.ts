@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {InitializerService} from './services/initializer/intializer.service';
+import {Subscription} from 'rxjs/index';
 
 @Component({
   selector: 'app-root',
@@ -28,12 +30,17 @@ export class AppComponent {
     }
   ];
 
+  private initialized = false;
+  private initializeSub :Subscription = null;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private initializerService: InitializerService
   ) {
-    this.initializeApp();
+      this.initializeApp();
+      this.initializeSub = this.initializerService.event.subscribe(()=>{this.onInitialized();});
   }
 
   initializeApp() {
@@ -41,5 +48,9 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  onInitialized() {
+      this.initialized = true;
   }
 }
