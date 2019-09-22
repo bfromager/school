@@ -16,7 +16,7 @@ export class ListService {
     }
 
     updateList() {
-        let url = 'https://www.bastok.fr/school/liste.php';
+        let url = 'https://raw.githubusercontent.com/bfromager/school/master/src/assets/liste.json';
         // console.log(url);
         this.httpService.getJsonContent(url)
             .then((data: string[]) => {
