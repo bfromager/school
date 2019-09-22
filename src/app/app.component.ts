@@ -40,7 +40,7 @@ export class AppComponent {
     private initializerService: InitializerService
   ) {
       this.initializeApp();
-      this.initializeSub = this.initializerService.event.subscribe(()=>{this.onInitialized();});
+      this.initializeSub = this.initializerService.isInitialized.subscribe(()=>{this.onInitialized();});
   }
 
   initializeApp() {
@@ -51,6 +51,7 @@ export class AppComponent {
   }
 
   onInitialized() {
+      console.log("AppComponent - onInitialized")
       this.initialized = true;
   }
 }

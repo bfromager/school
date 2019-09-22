@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {VocalService} from '../services/vocal/vocal.service';
 import {HttpService} from '../services/http/http.service';
-import {LoginService} from '../services/Login/login.service';
-import {InitializerService} from '../services/initializer/intializer.service';
+// import {LoginService} from '../services/login/login.service';
+// import {InitializerService} from '../services/initializer/intializer.service';
 
 @Component({
     selector: 'app-debug',
@@ -14,8 +14,8 @@ export class DebugPage implements OnInit {
     constructor(
         private vocalService: VocalService,
         private httpService: HttpService,
-        private loginService: LoginService,
-        private initializerService: InitializerService
+        //private loginService: LoginService,
+        //private initializerService: InitializerService
     )
     {
     }
@@ -60,10 +60,10 @@ export class DebugPage implements OnInit {
     }
 
     getLogin(){
-        this.tata = this.loginService.getData();
+        //this.tata = this.loginService.getLogin();
     }
 
     init(){
-        this.initializerService.setInitialized();
+        //this.initializerService.setInitialized();
     }
 }
