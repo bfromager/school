@@ -8,6 +8,7 @@ import {HttpService} from '../http/http.service';
 export class ListService {
 
     initialized = new Subject();
+    list: string[] = [];
 
     constructor (
         private httpService: HttpService
@@ -21,6 +22,7 @@ export class ListService {
         this.httpService.getJsonContent(url)
             .then((data: string[]) => {
                     console.log(data);
+                    this.list = data.slice();
                     this.initialized.next();
                 }
             )
@@ -29,6 +31,10 @@ export class ListService {
                     console.log(error);
                 }
             );
+    }
+
+    getList(): string[] {
+        return this.list;
     }
 
 }

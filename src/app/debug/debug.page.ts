@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {VocalService} from '../services/vocal/vocal.service';
 import {HttpService} from '../services/http/http.service';
-// import {LoginService} from '../services/login/login.service';
+import {ListService} from '../services/list/list.service';
+import {LoginService} from '../services/login/login.service';
 // import {InitializerService} from '../services/initializer/intializer.service';
 
 @Component({
@@ -14,8 +15,9 @@ export class DebugPage implements OnInit {
     constructor(
         private vocalService: VocalService,
         private httpService: HttpService,
-        //private loginService: LoginService,
+        private loginService: LoginService,
         //private initializerService: InitializerService
+        private listService: ListService
     )
     {
     }
@@ -39,28 +41,12 @@ export class DebugPage implements OnInit {
         this.vocalService.speech("Si Ré Mi La Ré Do Si, La Fa Mi Ré Do Do");
     }
 
-    getList() : Promise<string> {
-        return new Promise((resolve, reject) => {
-            let url = 'https://www.bastok.fr/school/liste.php';
-            console.log(url);
-            this.httpService.getJsonContent(url)
-                .then((data: string[]) => {
-                        console.log(data);
-                        if (data != null) this.tata = data[0];
-                    }
-                )
-                .catch(
-                    (error) => {
-                        this.tata = error.message;
-                        console.log(error);
-                        reject(error)
-                    }
-                );
-        });
+    getList() {
+        this.tata = this.listService.getList()[0];
     }
 
     getLogin(){
-        //this.tata = this.loginService.getLogin();
+        this.tata = this.loginService.getLogin();
     }
 
     init(){
