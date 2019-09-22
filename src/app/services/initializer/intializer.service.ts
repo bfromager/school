@@ -21,7 +21,7 @@ export class InitializerService {
         this.loginSub = this.loginService.logged.subscribe(()=>{this.login()});
 
         this.listSub = this.listService.initialized.subscribe(()=>{this.listUpdated();})
-        this.listService.getLastList()
+        this.listService.updateList()
     }
 
     login(){
