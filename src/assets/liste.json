@@ -1,19 +1,19 @@
 [
   [
     [
-      "Arthur mot 1",
-      "Arthur mot 2",
-      "Arthur mot 3"
+       {"name":"Arthur mot 1","hint":"a hint 1"}
+      ,{"name":"Arthur mot 2"}
+      ,{"name":"Arthur mot 3"}
     ],[
       "Arthur mult 1",
       "Arthur mult 2"
     ]
   ],[
     [
-      "Paul mot 1",
-      "Paul mot 2",
-      "Paul mot 3",
-      "Paul mot 4"
+       {"name":"Paul mot 1","hint":"a hint 1"}
+      ,{"name":"Paul mot 2"}
+      ,{"name":"Paul mot 3"}
+      ,{"name":"Paul mot 4","hint":"a hint 4"}
     ],[
     ]
   ]
